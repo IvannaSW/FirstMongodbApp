@@ -1,0 +1,30 @@
+doctype html
+html
+	head
+		title My first app
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+		link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet')
+	body(style={'font-size': '20px'})
+		div.container.text-center
+			.h1(style={'color': '#4682B4'}) Data about students
+			.table-responsive
+			table(class='table  table-bordered table-hover table-condensed ')
+				thead.text-center
+					th(class='col-sm-2 text-center info ') ID
+					th(class='col-sm-2 text-center info') First Name
+					th(class='col-sm-2 text-center info') Last Name
+					th(class='col-sm-2 text-center info') Age
+					th(class='col-sm-2 text-center info') Action
+				tbody
+					each objects in data
+						tr
+							td.col-sm-2= objects.id
+							td.col-sm-2= objects.name
+							td.col-sm-2= objects.surname
+							td.col-sm-2= objects.age
+							td.col-sm-2
+								a(class='btn btn-info btn-sm col-sm-5', href='server/edit/' + objects._id) Edit
+								a(class='btn btn-info btn-sm col-sm-5 col-sm-offset-2', href='server/delete/' + objects._id) Delete
+
+		div.container
+			a(class='btn btn-info btn-lg', href='server/add/') Add
